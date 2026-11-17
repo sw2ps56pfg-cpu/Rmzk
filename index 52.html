@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>رمزك | إنشاء رمز QR من أي رابط</title>
+<meta name="description" content="أنشئ رمز QR أو باركودًا من أي رابط، وخصّص شكله وألوانه وأضف شعارك، ثم نزّله أو احفظه.">
+<meta name="theme-color" content="#163a6b">
+<meta property="og:title" content="رمزك | إنشاء رمز QR من أي رابط">
+<meta property="og:description" content="أنشئ رمز QR من أي رابط، وخصّص تصميمه، ونزّله مجانًا.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%20width%3D%2264%22%20height%3D%2264%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23163a6b%22/%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M14.5%2010h10a4.5%204.5%200%200%201%204.5%204.5v10a4.5%204.5%200%200%201-4.5%204.5h-10a4.5%204.5%200%200%201-4.5-4.5v-10a4.5%204.5%200%200%201%204.5-4.5zm1%204a1.5%201.5%200%200%200-1.5%201.5v8a1.5%201.5%200%200%200%201.5%201.5h8a1.5%201.5%200%200%200%201.5-1.5v-8a1.5%201.5%200%200%200-1.5-1.5z%22/%3E%3Crect%20x%3D%2216.5%22%20y%3D%2216.5%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.4%22/%3E%3Cpath%20d%3D%22M39.5%2010h10a4.5%204.5%200%200%201%204.5%204.5v10a4.5%204.5%200%200%201-4.5%204.5h-10a4.5%204.5%200%200%201-4.5-4.5v-10a4.5%204.5%200%200%201%204.5-4.5zm1%204a1.5%201.5%200%200%200-1.5%201.5v8a1.5%201.5%200%200%200%201.5%201.5h8a1.5%201.5%200%200%200%201.5-1.5v-8a1.5%201.5%200%200%200-1.5-1.5z%22/%3E%3Crect%20x%3D%2241.5%22%20y%3D%2216.5%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.4%22/%3E%3Cpath%20d%3D%22M14.5%2035h10a4.5%204.5%200%200%201%204.5%204.5v10a4.5%204.5%200%200%201-4.5%204.5h-10a4.5%204.5%200%200%201-4.5-4.5v-10a4.5%204.5%200%200%201%204.5-4.5zm1%204a1.5%201.5%200%200%200-1.5%201.5v8a1.5%201.5%200%200%200%201.5%201.5h8a1.5%201.5%200%200%200%201.5-1.5v-8a1.5%201.5%200%200%200-1.5-1.5z%22/%3E%3Crect%20x%3D%2216.5%22%20y%3D%2241.5%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221.4%22/%3E%3Crect%20x%3D%2235%22%20y%3D%2235%22%20width%3D%225%22%20height%3D%225%22%20rx%3D%221.2%22/%3E%3Crect%20x%3D%2235%22%20y%3D%2249%22%20width%3D%225%22%20height%3D%225%22%20rx%3D%221.2%22/%3E%3Crect%20x%3D%2249%22%20y%3D%2235%22%20width%3D%225%22%20height%3D%225%22%20rx%3D%221.2%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2246%22%20cy%3D%2246%22%20r%3D%225.2%22%20fill%3D%22%23f2b234%22/%3E%3C/svg%3E">
+<script>
+  (function(){ var t=null; try{ t=localStorage.getItem('qr-theme'); }catch(e){}
+    if(!t) t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+    document.documentElement.setAttribute('data-theme',t); })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+<style>
+  :root{
+    --bg:#f4f6f9; --card:#ffffff; --ink:#14233b; --muted:#5b6778;
+    --line:#dfe4ec; --soft:#eef1f5; --accent:#163a6b; --accent-ink:#fff;
+    --field:#ffffff; --accent-soft:#e9eff7; --thumb:#f1f3f7; --danger:#b42318; --head:rgba(255,255,255,.95);
+    --gold-1:#ffffff; --gold-2:#ffffff; --gold-ink:#163a6b;
+    --grad:#163a6b;
+    --shadow:0 1px 2px rgba(20,35,59,.06);
+    color-scheme:light;
+  }
+  [data-theme=dark]{
+    --bg:#0f1622; --card:#151e2d; --ink:#e7ecf3; --muted:#9aa6b8;
+    --line:#26324a; --soft:#1b2537; --accent:#8fb3e6; --accent-ink:#0f1622;
+    --field:#121a28; --accent-soft:#1d2a40; --thumb:#1b2537; --danger:#f2867c; --head:rgba(15,22,34,.95);
+    --gold-1:#ffffff; --gold-2:#ffffff; --gold-ink:#163a6b;
+    --grad:#2b5592;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);
+    font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;font-size:15px;transition:background .2s,color .2s}
+  button,input,label{font-family:inherit}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .wrap{width:100%;max-width:560px;margin:0 auto;padding:18px 16px 48px}
+
+  /* ---- الهيدر ---- */
+  .top{position:sticky;top:0;z-index:20;background:var(--head);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line)}
+  .top-in{max-width:560px;margin:0 auto;padding:10px 16px 9px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;white-space:nowrap;min-width:0}
+  .logo-mark{width:34px;height:34px;display:inline-flex;flex:none}
+  .logo-mark svg{width:100%;height:100%;display:block}
+  .clock{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:9px;
+    padding:6px 12px;border-radius:8px;background:var(--soft);border:1px solid var(--line);line-height:1.35}
+  .clock .tm{font-weight:700;font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .clock .dates{display:flex;flex-direction:column;align-items:flex-end;text-align:left;min-width:0}
+  .clock .dt{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .top-acts{display:flex;gap:8px;flex:none}
+  .ibtn{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;height:38px;min-width:38px;
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;font-weight:600;font-size:14px;padding:0 11px}
+  .ibtn svg{width:19px;height:19px}
+  .ibtn.on{border-color:var(--accent);background:var(--accent-soft)}
+  .ibtn .badge{background:var(--accent);color:var(--accent-ink);border-radius:20px;font-size:12px;font-weight:700;padding:1px 8px;min-width:22px}
+  .panel{max-width:560px;margin:0 auto;padding:6px 16px 16px;max-height:68vh;overflow:auto}
+  .panel[hidden]{display:none}
+  @media (max-width:380px){ .brand span:last-child{display:none} }
+
+  /* ---- المقدمة ---- */
+  .hero{padding:14px 2px 18px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .hero h1{font-size:clamp(24px,6.4vw,30px);line-height:1.35;font-weight:700;margin:0 0 6px;text-wrap:balance}
+  .hero p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.6}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+  label.t{display:block;font-weight:600;margin-bottom:8px;font-size:14.5px}
+  input[type=text]{width:100%;font-size:16px;padding:14px 15px;border:1.5px solid var(--line);
+    border-radius:8px;background:var(--field);color:var(--ink);direction:ltr;text-align:left;outline:none;transition:border-color .15s,background .15s}
+  input[type=text]:focus{border-color:var(--accent);background:var(--card)}
+  input::placeholder{color:var(--muted);opacity:.75}
+  .url-card input#url{font-size:17px;padding:16px}
+  .seg{display:flex;gap:4px;background:var(--soft);padding:4px;border-radius:9px;border:1px solid var(--line);margin-top:12px}
+  .seg button{flex:1;border:0;background:transparent;font-weight:600;font-size:15px;
+    padding:9px;border-radius:6px;cursor:pointer;color:var(--muted)}
+  .seg button.on{background:var(--card);color:var(--accent);box-shadow:0 0 0 1px var(--line)}
+
+  /* ---- منصة الكود ---- */
+  .stage{position:relative;border-radius:12px;margin-bottom:14px;padding:28px 18px 22px;color:#fff;
+    background:#163a6b;border:1px solid #102c53}
+  [data-theme=dark] .stage{background:#1a2d4a;border-color:#26324a}
+  .out{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;min-height:250px;justify-content:center}
+  .out img{max-width:100%;height:auto;border-radius:6px;background:#fff;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .out.fresh img{animation:fadein .25s ease-out}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){ .out.fresh img{animation:none} }
+  .qr-ph{width:160px;height:160px;border-radius:6px;border:1.5px dashed rgba(255,255,255,.45);position:relative}
+  .qr-ph::before,.qr-ph::after{content:"";position:absolute;width:36px;height:36px;border:5px solid rgba(255,255,255,.4);border-radius:3px}
+  .qr-ph::before{top:14px;right:14px}.qr-ph::after{bottom:14px;left:14px}
+  .out .hint{color:rgba(255,255,255,.82)}
+  .out .dim{color:rgba(255,255,255,.7)}
+  .out .err{color:#fff;background:rgba(212,64,43,.85);padding:10px 14px;border-radius:12px}
+  .incode{font-size:13px;color:rgba(255,255,255,.75);text-align:center;max-width:100%;word-break:break-all}
+  .incode b{color:#fff;font-weight:500;direction:ltr;unicode-bidi:isolate}
+  .out .btn{background:#fff;color:#163a6b;box-shadow:none}
+  .out .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5);box-shadow:none}
+  .out .toast{color:#cfe0f7}
+
+  .hint{color:var(--muted);font-size:13.5px;text-align:center;margin:0;line-height:1.6}
+  .err{color:var(--danger);font-size:14px;text-align:center}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .btn{border:1.5px solid transparent;background:var(--accent);color:var(--accent-ink);font-weight:600;
+    padding:10px 18px;border-radius:7px;cursor:pointer;font-size:14.5px}
+    .btn:disabled{opacity:.6;cursor:default}
+  .btn.ghost{background:transparent;color:var(--accent);border-color:var(--accent);box-shadow:none}
+  .toast{font-size:13px;color:var(--accent);min-height:18px;font-weight:600}
+  .dim{font-size:12.5px;color:var(--muted);direction:ltr}
+
+  /* ---- الحفظ ---- */
+  .savebar{display:none}
+  .savebar input[type=text]{direction:rtl;text-align:right;margin-bottom:10px}
+  .savebar .btns{justify-content:flex-start}
+  .editing{font-size:13px;color:var(--accent);margin:0 0 8px;font-weight:600;display:none}
+
+  /* ---- التخصيص ---- */
+  .tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin:-2px 0 16px;overflow-x:auto}
+  .tabs button{flex:1;border:0;background:none;font-weight:600;font-size:14.5px;color:var(--muted);
+    padding:10px 10px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tabs button.on{color:var(--accent);border-bottom-color:var(--accent)}
+  .pane{display:none}.pane.on{display:block}
+  .grp{margin-bottom:18px}
+  .grp:last-child{margin-bottom:0}
+  .grp h3{font-size:14.5px;margin:0 0 9px;font-weight:700}
+  .grp h3 small{color:var(--muted);font-weight:400}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:8px}
+  .chip{border:1px solid var(--line);background:var(--field);border-radius:8px;padding:9px 4px 7px;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12.5px;color:var(--muted);transition:border-color .15s}
+  .chip svg{width:34px;height:34px}
+  .chip.on{border-color:var(--accent);color:var(--ink);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+  .chip.on svg{color:var(--accent)}
+  .range{display:flex;align-items:center;gap:10px}
+  .range input{flex:1;accent-color:var(--accent)}
+  .range output{min-width:60px;text-align:center;font-size:13.5px;background:var(--soft);border-radius:9px;padding:4px 6px;direction:ltr;font-variant-numeric:tabular-nums}
+  .colors{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .color{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1.5px solid var(--line);
+    background:var(--field);border-radius:8px;padding:8px 10px;font-size:14px}
+  .color input{width:38px;height:30px;border:0;padding:0;background:none;cursor:pointer}
+  .presets{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+  .presets button{width:34px;height:34px;border-radius:50%;border:3px solid var(--card);box-shadow:0 0 0 1.5px var(--line);cursor:pointer}
+  .check{display:flex;align-items:center;gap:8px;font-size:14px;margin-top:10px}
+  .check input{accent-color:var(--accent);width:18px;height:18px}
+  .upload{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .upload label{border:1px dashed var(--accent);color:var(--accent);border-radius:8px;padding:11px 15px;cursor:pointer;font-weight:600;font-size:14px}
+  .upload input{display:none}
+  .logo-thumb{width:46px;height:46px;border-radius:11px;object-fit:contain;background:var(--field);box-shadow:0 0 0 1px var(--line);display:none}
+  .qr-only.hide{display:none}
+  /* ---- خلفية وأشكال مستوحاة من رمز QR ---- */
+  .bg-deco{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+  .bd-dots{position:absolute;inset:0;background:var(--accent);opacity:.07;
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27180%27%20height%3D%27180%27%20viewBox%3D%270%200%20180%20180%27%3E%3Crect%20x%3D%2760%27%20y%3D%2724%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2772%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%2712%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27156%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2718%27%20y%3D%2766%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27108%27%20y%3D%276%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27174%27%20y%3D%2796%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2736%27%20y%3D%276%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2778%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2778%27%20y%3D%2712%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2742%27%20y%3D%2712%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27102%27%20y%3D%2778%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%27156%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27108%27%20y%3D%2718%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2742%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27120%27%20y%3D%27108%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%27108%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27108%27%20y%3D%2772%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%2742%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27162%27%20y%3D%2724%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2754%27%20y%3D%2778%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2724%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2718%27%20y%3D%27108%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2754%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27156%27%20y%3D%27126%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2730%27%20y%3D%2736%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2736%27%20y%3D%2736%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2730%27%20y%3D%2742%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2742%27%20y%3D%2742%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2736%27%20y%3D%2748%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27120%27%20y%3D%27114%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27126%27%20y%3D%27114%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27120%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27132%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27126%27%20y%3D%27126%27%20width%3D%276%27%20height%3D%276%27/%3E%3Cpath%20d%3D%27M132%2024h30v30h-30z%20M137%2029v20h20v-20z%20M142%2034h10v10h-10z%27%20fill-rule%3D%27evenodd%27/%3E%3C/svg%3E"),radial-gradient(120% 80% at 50% 0%,#000 25%,transparent 75%);
+    mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27180%27%20height%3D%27180%27%20viewBox%3D%270%200%20180%20180%27%3E%3Crect%20x%3D%2760%27%20y%3D%2724%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2772%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%2712%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27156%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2718%27%20y%3D%2766%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27108%27%20y%3D%276%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27174%27%20y%3D%2796%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2736%27%20y%3D%276%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2778%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2778%27%20y%3D%2712%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2742%27%20y%3D%2712%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27102%27%20y%3D%2778%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%27156%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27108%27%20y%3D%2718%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2742%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27120%27%20y%3D%27108%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%27108%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27108%27%20y%3D%2772%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%2742%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%276%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27162%27%20y%3D%2724%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2754%27%20y%3D%2778%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2724%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2718%27%20y%3D%27108%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2754%27%20y%3D%27102%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27156%27%20y%3D%27126%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2730%27%20y%3D%2736%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2736%27%20y%3D%2736%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2730%27%20y%3D%2742%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2742%27%20y%3D%2742%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%2736%27%20y%3D%2748%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27120%27%20y%3D%27114%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27126%27%20y%3D%27114%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27120%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27132%27%20y%3D%27120%27%20width%3D%276%27%20height%3D%276%27/%3E%3Crect%20x%3D%27126%27%20y%3D%27126%27%20width%3D%276%27%20height%3D%276%27/%3E%3Cpath%20d%3D%27M132%2024h30v30h-30z%20M137%2029v20h20v-20z%20M142%2034h10v10h-10z%27%20fill-rule%3D%27evenodd%27/%3E%3C/svg%3E"),radial-gradient(120% 80% at 50% 0%,#000 25%,transparent 75%);
+    -webkit-mask-size:180px 180px,100% 100%;mask-size:180px 180px,100% 100%;
+    -webkit-mask-repeat:repeat,no-repeat;mask-repeat:repeat,no-repeat;
+    -webkit-mask-composite:source-in;mask-composite:intersect}
+  [data-theme=dark] .bd-dots{opacity:.09}
+  .bd-f{position:absolute;border:solid var(--accent);background:var(--accent);background-clip:content-box;opacity:.06}
+  [data-theme=dark] .bd-f{opacity:.08}
+  .bd-f1{width:260px;height:260px;border-width:30px;padding:34px;border-radius:40px;top:130px;right:-90px;transform:rotate(-12deg)}
+  .bd-f2{width:200px;height:200px;border-width:24px;padding:26px;border-radius:32px;bottom:-60px;left:-70px;transform:rotate(14deg)}
+  .bd-f3{width:90px;height:90px;border-width:11px;padding:12px;border-radius:16px;top:55%;left:6%;transform:rotate(-8deg);opacity:.045}
+  @media (max-width:600px){
+    .bd-f1{width:170px;height:170px;border-width:20px;padding:22px;border-radius:28px;top:150px;right:-70px}
+    .bd-f2{width:140px;height:140px;border-width:17px;padding:18px;border-radius:22px}
+    .bd-f3{display:none}
+  }
+  .hero{position:relative}
+
+  /* ---- التذييل والدعم الفني ---- */
+  .foot{display:flex;align-items:center;justify-content:center;gap:6px 16px;flex-wrap:wrap}
+  .support-btn{border:0;background:none;padding:0;color:var(--muted);font:inherit;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .support-btn:hover{color:var(--accent)}
+  .fab{position:fixed;left:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:40;width:56px;height:56px;border-radius:50%;
+    border:0;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;cursor:pointer;
+    box-shadow:0 0 0 3px var(--card),0 10px 24px -8px rgba(20,35,59,.55),0 2px 6px rgba(20,35,59,.2)}
+  .fab svg{width:26px;height:26px}
+  .fab:hover{filter:brightness(1.08)}
+  body{padding-bottom:84px}
+  .sheet{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:16px}
+  .sheet[hidden]{display:none}
+  .sheet-back{position:absolute;inset:0;background:rgba(10,18,32,.55)}
+  .sheet-box{position:relative;width:100%;max-width:360px;background:var(--card);color:var(--ink);border:1px solid var(--line);
+    border-radius:14px;padding:24px 20px 18px;text-align:center;box-shadow:0 24px 60px -20px rgba(0,0,0,.5);animation:sheetIn .2s ease-out}
+  @keyframes sheetIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){ .sheet-box{animation:none} }
+  .sheet-x{position:absolute;top:8px;left:10px;border:0;background:none;color:var(--muted);font-size:24px;line-height:1;cursor:pointer;padding:4px 8px}
+  .sup-ic{width:52px;height:52px;border-radius:50%;background:#e8f8ee;color:#1fa855;display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px}
+  .sup-ic svg{width:28px;height:28px}
+  .sheet-box h2{margin:0 0 6px;font-size:19px}
+  .sheet-box p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
+  .wa-btn{display:flex;justify-content:center;width:100%;background:#1fa855;color:#fff;text-decoration:none;padding:12px}
+  .wa-btn svg{width:19px;height:19px}
+  .sup-num{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+  .sup-num b{color:var(--ink);font-weight:600;font-size:15px;letter-spacing:.3px}
+
+  /* ---- مقدمة متحركة ---- */
+  .hero{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .hero-text{min-width:0}
+  .hero-qr{flex:none;width:92px;height:92px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px}
+  .hero-qr svg{width:100%;height:100%;display:block}
+  .hero-qr rect{fill:var(--ink);opacity:0;transform-box:fill-box;transform-origin:center;
+    animation:hqIn .5s cubic-bezier(.2,.8,.25,1.25) forwards}
+  .hero-qr rect.f{fill:var(--accent);animation-duration:.6s}
+  @keyframes hqIn{from{opacity:0;transform:scale(.1) rotate(45deg)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){ .hero-qr rect{animation:none;opacity:1} }
+
+  /* ---- القوالب ---- */
+  .tpl-wrap{margin-bottom:16px}
+  .tpl-wrap h3{font-size:14.5px;margin:0 0 9px;font-weight:700}
+  .tpl-wrap h3 small{color:var(--muted);font-weight:400}
+  .tpl-row{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x proximity}
+  .tpl{flex:none;width:96px;border:1px solid var(--line);background:var(--field);border-radius:10px;padding:8px 8px 7px;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;color:var(--ink);scroll-snap-align:start}
+  .tpl img{width:78px;height:78px;border-radius:6px;object-fit:contain;background:#fff;box-shadow:0 0 0 1px var(--line)}
+  .tpl.on{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+
+  /* ---- المعاينة على الواقع ---- */
+  .mock-seg{display:flex;gap:3px;background:rgba(255,255,255,.1);padding:3px;border-radius:9px;margin:-8px auto 18px;max-width:360px}
+  .mock-seg[hidden]{display:none}
+  .mock-seg button{flex:1;border:0;background:none;color:rgba(255,255,255,.75);font-weight:600;font-size:13px;padding:7px 4px;border-radius:7px;cursor:pointer}
+  .mock-seg button.on{background:#fff;color:#163a6b}
+  .out .mk img{padding:0;box-shadow:none;border-radius:0;background:transparent;animation:none}
+  .mk{color:#14233b}
+  .mk-card{width:310px;max-width:100%;aspect-ratio:1.75;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:space-between;
+    gap:14px;padding:18px 18px 18px 16px;transform:rotate(-2.5deg);box-shadow:0 22px 40px -18px rgba(0,0,0,.7);position:relative;overflow:hidden}
+  .mk-card::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:#163a6b}
+  .mk-card-text{min-width:0}
+  .mk-card-text b{display:block;font-size:17px;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mk-card-text span{display:block;font-size:12px;color:#5b6778;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mk-card .mk-qr{width:100px;height:auto;flex:none}
+  .mk-tent{display:flex;flex-direction:column;align-items:center;perspective:700px}
+  .mk-tent-face{width:220px;background:#fff;border-radius:10px 10px 3px 3px;padding:16px 18px 14px;text-align:center;
+    transform:rotateX(9deg);transform-origin:bottom;box-shadow:0 2px 0 #d9dee8,0 18px 30px -16px rgba(0,0,0,.7)}
+  .mk-tent-face p{margin:0 0 10px;font-weight:700;font-size:16px}
+  .mk-tent-face .mk-qr{width:150px;height:auto}
+  .mk-tent-face small{display:block;margin-top:8px;font-size:11.5px;color:#5b6778}
+  .mk-tent-shadow{width:250px;height:16px;margin-top:-6px;border-radius:50%;background:rgba(0,0,0,.35);filter:blur(7px)}
+  .mk-phone{width:200px;height:370px;border-radius:34px;background:#0b111d;padding:11px;position:relative;
+    box-shadow:inset 0 0 0 2px #2b3650,0 24px 44px -18px rgba(0,0,0,.8)}
+  .mk-notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:62px;height:17px;border-radius:10px;background:#000;z-index:1}
+  .mk-screen{background:#fff;border-radius:24px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px;text-align:center}
+  .mk-screen .mk-qr{width:140px;height:auto}
+  .mk-screen p{margin:4px 0 0;font-weight:700;font-size:15px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mk-screen small{font-size:11.5px;color:#5b6778}
+  @media (min-width:920px){
+    .hero-text{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+    .hero-qr{width:112px;height:112px}
+  }
+
+  /* ---- تبويبات الأقسام ---- */
+  .views{display:flex;gap:0;border-bottom:1px solid var(--line);margin:0 0 6px}
+  .views button{border:0;background:none;color:var(--muted);font-weight:600;font-size:15px;padding:11px 16px;cursor:pointer;
+    border-bottom:2.5px solid transparent;margin-bottom:-1px;display:inline-flex;align-items:center;gap:8px}
+  .views button.on{color:var(--accent);border-bottom-color:var(--accent)}
+  .views .badge{background:var(--soft);color:var(--ink);border-radius:20px;font-size:12px;padding:1px 8px;min-width:22px;text-align:center}
+  .views button.on .badge{background:var(--accent);color:var(--accent-ink)}
+  #listView{padding-top:12px}
+  #listView .list-head h1{font-size:clamp(22px,6vw,28px);margin:0;font-weight:700}
+  #listView .list-head{margin-bottom:14px}
+  #listView .backup{margin-bottom:14px}
+  @media (min-width:920px){
+    #list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    #list .item{margin:0}
+    #list .empty{grid-column:1/-1}
+  }
+
+  /* ---- احترافي: خطوات، تخطيط، تفاصيل ---- */
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .step{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;margin:0 0 14px}
+  .step .num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:13px;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:600;flex:none}
+  .layout{display:flex;flex-direction:column}
+  .col-main,.col-side{display:contents}
+  #linkCard{order:1} #stageCard{order:2} #designCard{order:3} #saveBar{order:4}
+  .facts{margin:4px 0 0;display:grid;gap:4px;width:100%;max-width:360px;font-size:13px}
+  .facts div{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.14);padding-top:5px}
+  .facts dt{color:rgba(255,255,255,.65);margin:0;flex:none}
+  .facts dd{margin:0;color:#fff;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ltr{direction:ltr;unicode-bidi:isolate}
+  .note{display:flex;align-items:center;gap:6px;margin:0;font-size:12.5px;color:rgba(255,255,255,.8)}
+  .note svg{width:15px;height:15px;flex:none}
+  .btn{display:inline-flex;align-items:center;gap:7px}
+  .btn svg{width:17px;height:17px}
+  .out .btns{margin-top:4px}
+  .foot{color:var(--muted);font-size:12.5px;padding:22px 0 0;border-top:1px solid var(--line);margin-top:8px}
+  @media (min-width:920px){
+    .wrap,.top-in,.panel{max-width:1080px}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 410px;gap:20px;align-items:start}
+    .col-main,.col-side{display:block}
+    .col-side{position:sticky;top:128px}
+    .hero h1{margin:0}
+  }
+
+
+  /* ---- القائمة ---- */
+  .list-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:6px 0 10px;flex-wrap:wrap}
+  .list-head h2{font-size:18px;margin:0;font-weight:700}
+  #search{direction:rtl;text-align:right;margin-bottom:10px}
+  .backup{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:11px 12px;margin-bottom:10px;font-size:13.5px}
+  .backup p{margin:0 0 8px;line-height:1.6}
+  .backup p.warn{color:var(--danger);font-weight:600}
+  .backup .row2{display:flex;gap:8px;flex-wrap:wrap}
+  .backup input[type=file]{display:none}
+  .item{display:flex;gap:12px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);margin-bottom:8px}
+  .item.cur{border-color:var(--accent);background:var(--accent-soft)}
+  .item .th{width:64px;height:64px;flex:none;border-radius:10px;object-fit:contain;background:#fff;padding:3px;cursor:pointer;box-shadow:0 0 0 1px var(--line)}
+  .item .meta{flex:1;min-width:0;cursor:pointer}
+  .item .nm{font-weight:700;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .item .ul{font-size:12.5px;color:var(--muted);direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .item .when{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .item .acts{display:flex;flex-direction:column;gap:6px;flex:none}
+  .mini{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;font-weight:600;border-radius:6px;padding:5px 11px;cursor:pointer}
+  .mini.danger{border-color:var(--danger);color:var(--danger)}
+  .mini.confirm{background:var(--danger);color:#fff;border-color:var(--danger)}
+  .empty{text-align:center;color:var(--muted);font-size:14px;padding:18px 6px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="bg-deco" aria-hidden="true"><span class="bd-dots"></span><span class="bd-f bd-f1"></span><span class="bd-f bd-f2"></span><span class="bd-f bd-f3"></span></div>
+<header class="top">
+  <div class="top-in">
+    <div class="bar">
+      <div class="brand">
+        <span class="logo-mark"><svg viewBox="0 0 64 64" aria-hidden="true">
+  <rect width="64" height="64" rx="15" fill="#163a6b"/>
+  <g fill="#ffffff" fill-rule="evenodd">
+    <path d="M14.5 10h10a4.5 4.5 0 0 1 4.5 4.5v10a4.5 4.5 0 0 1-4.5 4.5h-10a4.5 4.5 0 0 1-4.5-4.5v-10a4.5 4.5 0 0 1 4.5-4.5zm1 4a1.5 1.5 0 0 0-1.5 1.5v8a1.5 1.5 0 0 0 1.5 1.5h8a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5z"/>
+    <rect x="16.5" y="16.5" width="6" height="6" rx="1.4"/>
+    <path d="M39.5 10h10a4.5 4.5 0 0 1 4.5 4.5v10a4.5 4.5 0 0 1-4.5 4.5h-10a4.5 4.5 0 0 1-4.5-4.5v-10a4.5 4.5 0 0 1 4.5-4.5zm1 4a1.5 1.5 0 0 0-1.5 1.5v8a1.5 1.5 0 0 0 1.5 1.5h8a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5z"/>
+    <rect x="41.5" y="16.5" width="6" height="6" rx="1.4"/>
+    <path d="M14.5 35h10a4.5 4.5 0 0 1 4.5 4.5v10a4.5 4.5 0 0 1-4.5 4.5h-10a4.5 4.5 0 0 1-4.5-4.5v-10a4.5 4.5 0 0 1 4.5-4.5zm1 4a1.5 1.5 0 0 0-1.5 1.5v8a1.5 1.5 0 0 0 1.5 1.5h8a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5z"/>
+    <rect x="16.5" y="41.5" width="6" height="6" rx="1.4"/>
+    <rect x="35" y="35" width="5" height="5" rx="1.2"/>
+    <rect x="35" y="49" width="5" height="5" rx="1.2"/>
+    <rect x="49" y="35" width="5" height="5" rx="1.2"/>
+  </g>
+  <circle cx="46" cy="46" r="5.2" fill="#f2b234"/>
+</svg></span>
+        <span>رمزك</span>
+      </div>
+      <div class="top-acts">
+        <button class="ibtn" id="themeBtn" aria-label="تبديل النمط"></button>
+        <button class="ibtn" id="listBtn" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          <span class="lbl">رموزي</span> <span class="badge" id="count">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="clock" aria-live="off">
+      <span class="tm" id="clkTime">--:--:--</span>
+      <span class="dates"><span class="dt" id="clkDate"></span><span class="dt" id="clkHijri"></span></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="views" role="tablist" aria-label="أقسام الموقع">
+    <button role="tab" id="tabCreate" class="on" aria-selected="true" aria-controls="createView">إنشاء رمز</button>
+    <button role="tab" id="tabList" aria-selected="false" aria-controls="listView">رموزي <span class="badge" id="count2">0</span></button>
+  </nav>
+
+  <div id="createView" role="tabpanel" aria-labelledby="tabCreate">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>إنشاء رمز QR من أي رابط</h1>
+      <p>أدخل الرابط، وخصّص التصميم، ثم احفظ الرمز أو نزّله.</p>
+    </div>
+    <div class="hero-qr" aria-hidden="true"><svg id="heroQR"></svg></div>
+  </section>
+
+  <div class="layout">
+  <div class="col-main">
+  <section class="card url-card" id="linkCard" aria-labelledby="h-link">
+    <h2 class="step" id="h-link"><span class="num">1</span>الرابط</h2>
+    <label class="sr" for="url">الرابط</label>
+    <input id="url" type="text" placeholder="https://example.com" autocomplete="off" spellcheck="false" inputmode="url">
+    <div class="seg" id="modeSeg">
+      <button class="on" data-mode="qr">رمز QR</button>
+      <button data-mode="bar">باركود خطّي</button>
+    </div>
+  </section>
+
+  <section class="card" id="designCard" aria-labelledby="h-design">
+    <h2 class="step" id="h-design"><span class="num">2</span>التصميم</h2>
+    <div class="tpl-wrap qr-only">
+      <h3>قوالب جاهزة <small>(تظهر برابطك أنت)</small></h3>
+      <div class="tpl-row" id="tplRow"></div>
+    </div>
+    <div class="tabs" id="tabs">
+      <button class="on qr-only" data-pane="shape">الشكل</button>
+      <button data-pane="colors">الألوان</button>
+      <button class="qr-only" data-pane="logo">الشعار</button>
+      <button data-pane="size">الحجم والهامش</button>
+    </div>
+
+    <!-- الشكل -->
+    <div class="pane on qr-only" data-pane="shape">
+      <div class="grp">
+        <h3>حجم المربعات <small>(كلما كبُرت قلّ عددها)</small></h3>
+        <div class="chips" data-group="ec">
+          <button class="chip on" data-v="L"><svg viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></g></svg>كبيرة</button>
+          <button class="chip" data-v="M"><svg viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="3" width="5" height="5"/><rect x="10" y="10" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/><rect x="3" y="16" width="5" height="5"/><rect x="16" y="16" width="5" height="5"/></g></svg>متوسطة</button>
+          <button class="chip" data-v="Q"><svg viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="3" width="4" height="4"/><rect x="10" y="3" width="4" height="4"/><rect x="17" y="10" width="4" height="4"/><rect x="3" y="10" width="4" height="4"/><rect x="10" y="17" width="4" height="4"/><rect x="17" y="17" width="4" height="4"/></g></svg>صغيرة</button>
+          <button class="chip" data-v="H"><svg viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="3" width="3" height="3"/><rect x="9" y="3" width="3" height="3"/><rect x="15" y="9" width="3" height="3"/><rect x="3" y="9" width="3" height="3"/><rect x="9" y="15" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/><rect x="3" y="18" width="3" height="3"/><rect x="18" y="3" width="3" height="3"/></g></svg>صغيرة جداً</button>
+        </div>
+        <p class="hint" style="text-align:right;margin-top:8px">كلما قصُر الرابط كبُرت المربعات. يمكنك اختصار الروابط الطويلة بخدمة اختصار روابط.</p>
+      </div>
+      <div class="grp">
+        <h3>شكل النقاط</h3>
+        <div class="chips" data-group="dot">
+          <button class="chip on" data-v="square"><svg viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/></g></svg>مربع</button>
+          <button class="chip" data-v="rounded"><svg viewBox="0 0 24 24"><g fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.6"/><rect x="13" y="13" width="8" height="8" rx="2.6"/><rect x="13" y="3" width="8" height="8" rx="2.6"/></g></svg>ناعم</button>
+          <button class="chip" data-v="circle"><svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="7" cy="7" r="4"/><circle cx="17" cy="17" r="4"/><circle cx="17" cy="7" r="4"/></g></svg>دوائر</button>
+          <button class="chip" data-v="smooth"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4h0a4 4 0 0 1-4-4v-6H7a4 4 0 0 1 0-8z"/></svg>متصل</button>
+          <button class="chip" data-v="diamond"><svg viewBox="0 0 24 24"><g fill="currentColor"><path d="M7 2.5 11.5 7 7 11.5 2.5 7z"/><path d="M17 12.5 21.5 17 17 21.5 12.5 17z"/><path d="M17 2.5 21.5 7 17 11.5 12.5 7z"/></g></svg>معيّن</button>
+        </div>
+      </div>
+      <div class="grp">
+        <h3>إطار الزوايا <small>(المربعات الثلاثة الكبيرة)</small></h3>
+        <div class="chips" data-group="frame">
+          <button class="chip on" data-v="square"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" fill="none" stroke="currentColor" stroke-width="3"/></svg>مربع</button>
+          <button class="chip" data-v="rounded"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>بحواف</button>
+          <button class="chip" data-v="circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="3"/></svg>دائرة</button>
+          <button class="chip" data-v="leaf"><svg viewBox="0 0 24 24"><path d="M12 3.5h8.5V12A8.5 8.5 0 0 1 12 20.5H3.5V12A8.5 8.5 0 0 1 12 3.5z" fill="none" stroke="currentColor" stroke-width="3"/></svg>ورقة</button>
+        </div>
+      </div>
+      <div class="grp">
+        <h3>النقطة داخل الزوايا</h3>
+        <div class="chips" data-group="eye">
+          <button class="chip on" data-v="square"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" fill="currentColor"/></svg>مربع</button>
+          <button class="chip" data-v="rounded"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3.5" fill="currentColor"/></svg>بحواف</button>
+          <button class="chip" data-v="circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5" fill="currentColor"/></svg>دائرة</button>
+          <button class="chip" data-v="leaf"><svg viewBox="0 0 24 24"><path d="M12 6h6v6a6 6 0 0 1-6 6H6v-6a6 6 0 0 1 6-6z" fill="currentColor"/></svg>ورقة</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- الألوان -->
+    <div class="pane" data-pane="colors">
+      <div class="colors">
+        <div class="color">لون الرمز <input id="fg" type="color" value="#1d1b16"></div>
+        <div class="color">الخلفية <input id="bgc" type="color" value="#ffffff"></div>
+        <div class="color qr-only">لون الزوايا <input id="eyec" type="color" value="#1d1b16"></div>
+      </div>
+      <label class="check qr-only"><input type="checkbox" id="eyeSame" checked> الزوايا بلون الرمز نفسه</label>
+      <div class="presets" id="presets">
+        <button style="background:#1d1b16" data-c="#1d1b16" aria-label="أسود"></button>
+        <button style="background:#0f6b5c" data-c="#0f6b5c" aria-label="أخضر"></button>
+        <button style="background:#1f4fa3" data-c="#1f4fa3" aria-label="أزرق"></button>
+        <button style="background:#7a2fa0" data-c="#7a2fa0" aria-label="بنفسجي"></button>
+        <button style="background:#b8321f" data-c="#b8321f" aria-label="أحمر"></button>
+        <button style="background:#b5781a" data-c="#b5781a" aria-label="ذهبي"></button>
+      </div>
+      <p class="hint" style="text-align:right;margin-top:10px">احرص على أن يكون لون الرمز أغمق من الخلفية بوضوح لضمان قراءته.</p>
+    </div>
+
+    <!-- الشعار -->
+    <div class="pane qr-only" data-pane="logo">
+      <div class="grp">
+        <div class="upload">
+          <label for="logoFile">اختر صورة الشعار</label>
+          <input id="logoFile" type="file" accept="image/*">
+          <img id="logoThumb" class="logo-thumb" alt="">
+          <button class="btn ghost" id="logoRemove" style="display:none;padding:8px 12px">حذف الشعار</button>
+        </div>
+      </div>
+      <div class="grp">
+        <h3>حجم الشعار</h3>
+        <div class="range"><input id="logoSize" type="range" min="12" max="30" value="20"><output id="logoSizeOut">20%</output></div>
+      </div>
+      <div class="grp">
+        <label class="check" style="margin-top:0"><input type="checkbox" id="logoClear" checked> تفريغ مكان خلف الشعار</label>
+        <label class="check"><input type="checkbox" id="logoRound" checked> حواف دائرية لخلفية الشعار</label>
+      </div>
+      <p class="hint" style="text-align:right">عند إضافة شعار تُرفع قوة تصحيح الأخطاء تلقائيًا. يُنصح بتجربة مسح الرمز قبل استخدامه.</p>
+    </div>
+
+    <!-- الحجم -->
+    <div class="pane" data-pane="size">
+      <div class="grp">
+        <h3>الحجم</h3>
+        <div class="range"><input id="size" type="range" min="120" max="1000" step="10" value="220"><output id="sizeOut">220px</output></div>
+      </div>
+      <div class="grp">
+        <h3>الهامش (المسافة حول الرمز)</h3>
+        <div class="range"><input id="margin" type="range" min="0" max="8" value="2"><output id="marginOut">2</output></div>
+      </div>
+      <div class="grp qr-only">
+        <h3>انحناء زوايا الصورة</h3>
+        <div class="range"><input id="corner" type="range" min="0" max="20" value="0"><output id="cornerOut">0%</output></div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <aside class="col-side" aria-label="المعاينة والحفظ">
+  <section class="stage" id="stageCard" aria-label="المعاينة">
+    <div class="mock-seg" id="mockSeg" hidden role="group" aria-label="طريقة العرض">
+      <button class="on" data-m="plain">الرمز</button>
+      <button data-m="card">بطاقة عمل</button>
+      <button data-m="tent">طاولة</button>
+      <button data-m="phone">جوال</button>
+    </div>
+    <div class="out" id="out"><div class="qr-ph"></div><p class="hint">أدخل رابطًا لعرض المعاينة هنا</p></div>
+  </section>
+
+  <section class="card savebar" id="saveBar" aria-labelledby="h-save">
+    <h2 class="step" id="h-save"><span class="num">3</span>الحفظ</h2>
+    <p class="editing" id="editing">تعديل رمز محفوظ</p>
+    <label class="sr" for="codeName">اسم الرمز</label>
+    <input id="codeName" type="text" maxlength="80" placeholder="اسم الرمز (مثال: قائمة المطعم)" autocomplete="off">
+    <div class="btns">
+      <button class="btn" id="saveList">حفظ في رموزي</button>
+      <button class="btn ghost" id="saveNew" style="display:none">حفظ كنسخة جديدة</button>
+      <button class="btn ghost" id="newCode" style="display:none">رمز جديد</button>
+    </div>
+    <div class="toast" id="toast2"></div>
+  </section>
+  </aside>
+  </div>
+  </div>
+
+  <section id="listView" role="tabpanel" aria-labelledby="tabList" hidden>
+    <div class="list-head"><h1>رموزي</h1><span class="hint" id="storeNote"></span></div>
+    <div class="backup" id="backupBox">
+      <p id="backupMsg"></p>
+      <div class="row2">
+        <button class="mini" id="exportBtn">تنزيل نسخة احتياطية</button>
+        <label class="mini" for="importFile">استعادة نسخة احتياطية</label>
+        <input id="importFile" type="file" accept=".json,application/json">
+      </div>
+      <div class="toast" id="toast3" style="margin-top:6px"></div>
+    </div>
+    <input id="search" type="text" placeholder="ابحث بالاسم أو الرابط" autocomplete="off" style="display:none">
+    <div id="list"><p class="empty">جارٍ تحميل القائمة…</p></div>
+  </section>
+
+  <footer class="foot">
+    <span>© 2026 رمزك. جميع الحقوق محفوظة.</span>
+    <button class="support-btn" id="supportBtn" type="button" aria-haspopup="dialog">الدعم الفني</button>
+  </footer>
+
+  <button class="fab" id="supportFab" type="button" aria-label="الدعم الفني" title="الدعم الفني" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.8" y="13" width="4.4" height="6.5" rx="1.6"/><rect x="16.8" y="13" width="4.4" height="6.5" rx="1.6"/><path d="M19 19.5v.5a2.5 2.5 0 0 1-2.5 2.5H13"/></svg></button>
+
+  <div class="sheet" id="supportSheet" hidden>
+    <div class="sheet-back" data-close></div>
+    <div class="sheet-box" role="dialog" aria-modal="true" aria-labelledby="supTitle">
+      <button class="sheet-x" type="button" data-close aria-label="إغلاق">×</button>
+      <div class="sup-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.7 16.9L2.3 21.8l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2c0 1.2.9 2.4 1 2.5.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3z"/></svg></div>
+      <h2 id="supTitle">الدعم الفني</h2>
+      <p>تواصل معنا عبر واتساب، وسنرد عليك في أقرب وقت.</p>
+      <a class="btn wa-btn" id="waLink" href="https://wa.me/966533957948?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D9%81%D9%8A%20%D9%85%D9%88%D9%82%D8%B9%20%D8%B1%D9%85%D8%B2%D9%83" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.7 16.9L2.3 21.8l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2c0 1.2.9 2.4 1 2.5.1.2 1.7 2.6 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3z"/></svg>فتح محادثة واتساب</a>
+      <div class="sup-num"><span>أو راسلنا على الرقم:</span><b class="ltr" id="supNum">+966 53 395 7948</b>
+        <button class="mini" type="button" id="copyNum">نسخ الرقم</button></div>
+      <div class="toast" id="toastSup"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const input=$('url'), out=$('out');
+  const st = { mode:'qr', dot:'square', frame:'square', eye:'square', ec:'L', logo:null, logoData:'' };
+  let lastInfo='', lastBump=false, lastHtml='';
+  let currentDataUrl=null;
+
+  // ---- UI wiring ----
+  function setMode(m){
+    st.mode=m;
+    $('modeSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.mode===m));
+    document.querySelectorAll('.qr-only').forEach(el=>el.classList.toggle('hide', m!=='qr'));
+    const active=document.querySelector('.tabs button.on');
+    if(active.classList.contains('hide')) showPane('colors');
+  }
+  $('modeSeg').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ setMode(b.dataset.mode); render(); }));
+  $('tabs').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>showPane(b.dataset.pane)));
+  function showPane(p){
+    document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x.dataset.pane===p));
+    document.querySelectorAll('.pane').forEach(x=>x.classList.toggle('on',x.dataset.pane===p));
+  }
+  document.querySelectorAll('.chips').forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    g.querySelectorAll('.chip').forEach(x=>x.classList.remove('on')); c.classList.add('on');
+    st[g.dataset.group]=c.dataset.v; render();
+  })));
+  $('presets').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    $('fg').value=b.dataset.c; if($('eyeSame').checked) $('eyec').value=b.dataset.c; render();
+  }));
+  $('fg').addEventListener('input',()=>{ if($('eyeSame').checked) $('eyec').value=$('fg').value; });
+  $('eyec').addEventListener('input',()=>{ $('eyeSame').checked=false; });
+  $('eyeSame').addEventListener('change',()=>{ if($('eyeSame').checked) $('eyec').value=$('fg').value; });
+
+  const ranges=[['size','px'],['margin',''],['corner','%'],['logoSize','%']];
+  ranges.forEach(([id,u])=>{ $(id).addEventListener('input',()=>{ $(id+'Out').textContent=$(id).value+u; }); });
+
+  ['url','fg','bgc','eyec','eyeSame','size','margin','corner','logoSize','logoClear','logoRound']
+    .forEach(id=>{ $(id).addEventListener('input',render); $(id).addEventListener('change',render); });
+
+  function loadImg(src){ return new Promise((ok,no)=>{ const im=new Image(); im.onload=()=>ok(im); im.onerror=no; im.src=src; }); }
+  // نصغّر الشعار عشان ينحفظ مع الباركود بحجم خفيف
+  async function shrinkLogo(src){
+    const im=await loadImg(src);
+    const k=Math.min(1,256/Math.max(im.width,im.height));
+    const c=document.createElement('canvas'); c.width=Math.max(1,Math.round(im.width*k)); c.height=Math.max(1,Math.round(im.height*k));
+    c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+    let d=c.toDataURL('image/png');
+    if(d.length>150000) d=c.toDataURL('image/webp',0.85);
+    return d;
+  }
+  async function setLogo(dataUrl){
+    if(!dataUrl){ clearLogo(); return; }
+    const im=await loadImg(dataUrl);
+    st.logo=im; st.logoData=dataUrl; $('logoThumb').src=dataUrl;
+    $('logoThumb').style.display='block'; $('logoRemove').style.display='inline-block'; render();
+  }
+  function clearLogo(){
+    st.logo=null; st.logoData=''; $('logoFile').value='';
+    $('logoThumb').style.display='none'; $('logoRemove').style.display='none'; render();
+  }
+  $('logoFile').addEventListener('change',e=>{
+    const f=e.target.files[0]; if(!f) return;
+    const rd=new FileReader();
+    rd.onload=async()=>{ try{ await setLogo(await shrinkLogo(rd.result)); }catch(err){ toast2('تعذّرت قراءة الصورة. جرّب صورة أخرى.'); } };
+    rd.readAsDataURL(f);
+  });
+  $('logoRemove').addEventListener('click',clearLogo);
+
+  // ---- الإعدادات: قراءة وتطبيق ----
+  function getSettings(){
+    return { mode:st.mode, dot:st.dot, frame:st.frame, eye:st.eye, ec:st.ec,
+      fg:$('fg').value, bg:$('bgc').value, eyec:$('eyec').value, eyeSame:$('eyeSame').checked,
+      size:+$('size').value, margin:+$('margin').value, corner:+$('corner').value,
+      logoSize:+$('logoSize').value, logoClear:$('logoClear').checked, logoRound:$('logoRound').checked };
+  }
+  function applySettings(S){
+    const d=Object.assign(getSettings(),S||{});
+    setMode(d.mode==='bar'?'bar':'qr');
+    ['dot','frame','eye','ec'].forEach(g=>{
+      st[g]=d[g];
+      document.querySelectorAll('.chips[data-group="'+g+'"] .chip').forEach(c=>c.classList.toggle('on',c.dataset.v===d[g]));
+    });
+    $('fg').value=d.fg; $('bgc').value=d.bg; $('eyec').value=d.eyec; $('eyeSame').checked=!!d.eyeSame;
+    $('size').value=d.size; $('margin').value=d.margin; $('corner').value=d.corner; $('logoSize').value=d.logoSize;
+    $('logoClear').checked=!!d.logoClear; $('logoRound').checked=!!d.logoRound;
+    ranges.forEach(([id,u])=>{ $(id+'Out').textContent=$(id).value+u; });
+  }
+
+
+  // ---- تقصير البيانات = مربعات أقل وأكبر ----
+  const utf8 = t => unescape(encodeURIComponent(t));
+  function buildQR(text, ec){
+    const plain = qrcode(0, ec); plain.addData(utf8(text)); plain.make();
+    let best = plain;
+    // بداية الرابط (https://site.com) ما تفرق فيها الحروف الكبيرة والصغيرة،
+    // فنكتبها بحروف كبيرة بوضع "أبجدي رقمي" اللي ياخذ مساحة أقل.
+    const m = text.match(/^(https?:\/\/[^\/?#]+)(.*)$/i);
+    if (m) {
+      const head = m[1].toUpperCase();
+      if (/^[0-9A-Z $%*+\-.\/:]+$/.test(head)) {
+        try {
+          const q = qrcode(0, ec);
+          q.addData(head, 'Alphanumeric');
+          if (m[2]) q.addData(utf8(m[2]), 'Byte');
+          q.make();
+          if (q.getModuleCount() < best.getModuleCount()) best = q;
+        } catch(e) {}
+      }
+    }
+    return best;
+  }
+
+  // ---- تنظيف الرابط: حذف التعريف (مين شاركه) والتتبع ----
+  // مواقع نعرف وش الضروري في روابطها: نخلي الضروري ونشيل الباقي كله
+  const SITE_KEEP = [
+    [/(^|\.)youtube\.com$/i, ['v','list','t','index']],
+    [/(^|\.)youtu\.be$/i, ['t','list']],
+    [/(^|\.)(facebook\.com|fb\.com|fb\.watch)$/i, ['id','story_fbid','fbid','v','set']],
+    [/(^|\.)wa\.me$/i, ['text']],
+    [/(^|\.)music\.apple\.com$/i, ['i']],
+    [/(^|\.)(instagram\.com|threads\.net|threads\.com|tiktok\.com|snapchat\.com|twitter\.com|x\.com|linkedin\.com|lnkd\.in|pinterest\.[a-z.]+|pin\.it|t\.me|spotify\.com|spotify\.link|maps\.app\.goo\.gl|goo\.gl|bit\.ly|soundcloud\.com|on\.soundcloud\.com|telegram\.me)$/i, []],
+  ];
+  // باقي المواقع: نشيل بس اللي معروف إنه تتبع أو تعريف
+  const TRACK_ALL = [/^utm_/i, /^fbclid$/i, /^gclid$/i, /^gbraid$/i, /^wbraid$/i, /^dclid$/i, /^igsh(id)?$/i,
+    /^mc_(cid|eid)$/i, /^ref_src$/i, /^ref_url$/i, /^_hsenc$/i, /^_hsmi$/i, /^mibextid$/i, /^yclid$/i, /^msclkid$/i,
+    /^share_id$/i, /^sharer?_?id$/i, /^shared?_from$/i, /^twclid$/i, /^ttclid$/i, /^li_fat_id$/i, /^srsltid$/i, /^epik$/i, /^_branch_match_id$/i];
+  function cleanUrl(t){
+    let u; try { u = new URL(t); } catch(e) { return t; }
+    if (!/^https?:$/.test(u.protocol) || !u.search) return t;
+    const site = SITE_KEEP.find(([h]) => h.test(u.hostname));
+    let removed = false;
+    [...u.searchParams.keys()].forEach(k => {
+      const drop = site ? !site[1].includes(k) : TRACK_ALL.some(r => r.test(k));
+      if (drop) { u.searchParams.delete(k); removed = true; }
+    });
+    if (!removed) return t;
+    let out = u.toString();
+    if (![...u.searchParams.keys()].length) out = out.replace('?', '');
+    return out;
+  }
+  const esc = t => String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  const _i=p=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>';
+  const ICON={
+    download:_i('<path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/>'),
+    copy:_i('<rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/>'),
+    link:_i('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'),
+    check:_i('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+    info:_i('<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/>')
+  };
+  // ---- drawing helpers ----
+  function rr(ctx,x,y,w,h,r){
+    if(typeof r==='number') r=[r,r,r,r];
+    const [tl,tr,br,bl]=r;
+    ctx.moveTo(x+tl,y);
+    ctx.arcTo(x+w,y,x+w,y+h,tr);
+    ctx.arcTo(x+w,y+h,x,y+h,br);
+    ctx.arcTo(x,y+h,x,y,bl);
+    ctx.arcTo(x,y,x+w,y,tl);
+    ctx.closePath();
+  }
+  function shape(ctx,x,y,s,style){
+    if(style==='square') ctx.rect(x,y,s,s);
+    else if(style==='rounded') rr(ctx,x,y,s,s,s*0.28);
+    else if(style==='circle'){ ctx.moveTo(x+s,y+s/2); ctx.arc(x+s/2,y+s/2,s/2,0,Math.PI*2); ctx.closePath(); }
+    else if(style==='leaf') rr(ctx,x,y,s,s,[s*0.5,0,s*0.5,0]);
+  }
+  function drawEye(ctx,x,y,c,frameColor,S){
+    ctx.fillStyle=frameColor;
+    ctx.beginPath();
+    shape(ctx,x,y,7*c,S.frame);
+    shape(ctx,x+c,y+c,5*c,S.frame);
+    ctx.fill('evenodd');
+    ctx.beginPath();
+    shape(ctx,x+2*c,y+2*c,3*c,S.eye);
+    ctx.fill();
+  }
+
+  function drawQR(text,S,logo){
+    const hasLogo=!!logo;
+    const order='LMQH';
+    let ec=S.ec;
+    if(hasLogo && ec==='L') ec='M';   // الشعار يحتاج تصحيح أعلى شوي عشان ينقرأ
+    const qr=buildQR(text, ec);
+    const n=qr.getModuleCount(), m=+S.margin, total=n+2*m;
+    lastInfo = n+'×'+n; lastBump = ec!==S.ec;
+    const cell=Math.max(1,Math.floor(+S.size/total));
+    const px=cell*total, off=m*cell;
+    const cv=document.createElement('canvas'); cv.width=cv.height=px;
+    const ctx=cv.getContext('2d');
+    const fg=S.fg, bg=S.bg, eyeCol=S.eyeSame?fg:S.eyec;
+
+    // background with optional rounded corners
+    const cr=px*(+S.corner)/100;
+    ctx.fillStyle=bg; ctx.beginPath(); rr(ctx,0,0,px,px,cr); ctx.fill();
+
+    const finder=(r,c)=>(r<7&&c<7)||(r<7&&c>=n-7)||(r>=n-7&&c<7);
+
+    // logo zone (in modules)
+    let lz=null;
+    if(hasLogo){
+      const ls=Math.round(n*(+S.logoSize)/100);
+      const s=ls%2===n%2?ls:ls+1;
+      const a=(n-s)/2; lz={a,b:a+s};
+    }
+    const inLogo=(r,c)=>lz&&S.logoClear&&r>=lz.a-0.5&&r<lz.b-0.5&&c>=lz.a-0.5&&c<lz.b-0.5;
+    const dark=(r,c)=>r>=0&&c>=0&&r<n&&c<n&&qr.isDark(r,c)&&!finder(r,c)&&!inLogo(r,c);
+
+    ctx.fillStyle=fg;
+    for(let r=0;r<n;r++) for(let c=0;c<n;c++){
+      if(!dark(r,c)) continue;
+      const x=off+c*cell, y=off+r*cell;
+      ctx.beginPath();
+      switch(S.dot){
+        case 'square': ctx.rect(x,y,cell,cell); break;
+        case 'rounded': rr(ctx,x+cell*0.06,y+cell*0.06,cell*0.88,cell*0.88,cell*0.3); break;
+        case 'circle': ctx.moveTo(x+cell*0.96,y+cell/2); ctx.arc(x+cell/2,y+cell/2,cell*0.46,0,Math.PI*2); break;
+        case 'diamond': ctx.moveTo(x+cell/2,y); ctx.lineTo(x+cell,y+cell/2); ctx.lineTo(x+cell/2,y+cell); ctx.lineTo(x,y+cell/2); ctx.closePath(); break;
+        case 'smooth': {
+          const R=cell*0.5, u=dark(r-1,c), d=dark(r+1,c), l=dark(r,c-1), rt=dark(r,c+1);
+          rr(ctx,x,y,cell,cell,[(!u&&!l)?R:0,(!u&&!rt)?R:0,(!d&&!rt)?R:0,(!d&&!l)?R:0]);
+          break;
+        }
+      }
+      ctx.fill();
+    }
+
+    drawEye(ctx,off,off,cell,eyeCol,S);
+    drawEye(ctx,off+(n-7)*cell,off,cell,eyeCol,S);
+    drawEye(ctx,off,off+(n-7)*cell,cell,eyeCol,S);
+
+    if(hasLogo){
+      const boxS=(lz.b-lz.a)*cell, bx=off+lz.a*cell, by=bx;
+      if(S.logoClear){
+        ctx.fillStyle=bg; ctx.beginPath();
+        rr(ctx,bx,by,boxS,boxS,S.logoRound?boxS*0.22:0); ctx.fill();
+      }
+      const pad=S.logoClear?boxS*0.1:0, inner=boxS-pad*2;
+      const im=logo, k=Math.min(inner/im.width,inner/im.height);
+      const w=im.width*k, h=im.height*k;
+      ctx.save();
+      if(S.logoRound){ ctx.beginPath(); rr(ctx,bx+pad,by+pad,inner,inner,inner*0.18); ctx.clip(); }
+      ctx.drawImage(im,bx+(boxS-w)/2,by+(boxS-h)/2,w,h);
+      ctx.restore();
+    }
+    return cv;
+  }
+
+  function drawBar(text,S){
+    const tmp=document.createElement('canvas');
+    JsBarcode(tmp,text,{format:'CODE128',lineColor:S.fg,background:S.bg,
+      width:2,height:90,displayValue:true,fontSize:14,margin:(+S.margin)*6});
+    const target=+S.size*1.6;
+    const k=target/tmp.width;
+    const cv=document.createElement('canvas');
+    cv.width=Math.round(tmp.width*k); cv.height=Math.round(tmp.height*k);
+    const ctx=cv.getContext('2d'); ctx.imageSmoothingEnabled=false;
+    ctx.drawImage(tmp,0,0,cv.width,cv.height);
+    return cv;
+  }
+
+  function render(){
+    const raw=input.value.trim();
+    const text=cleanUrl(raw);
+    if(typeof markTemplate==='function') try{ markTemplate(); }catch(e){}
+    const cleanNote = text!==raw ? '<p class="note">'+ICON.check+'أُزيلت بيانات التتبع من الرابط ('+raw.length+' ← '+text.length+' حرفًا)</p>' : '';
+    if(!raw){ out.innerHTML='<div class="qr-ph"></div><p class="hint">أدخل رابطًا لعرض المعاينة هنا</p>'; currentDataUrl=null; lastHtml=''; $('saveBar').style.display='none'; $('mockSeg').hidden=true; $('mockSeg').hidden=true; return; }
+    let cv;
+    try{
+      if(typeof qrcode==='undefined'||typeof JsBarcode==='undefined') throw new Error('lib');
+      const S=getSettings();
+      cv = S.mode==='qr'?drawQR(text,S,st.logo):drawBar(text,S);
+    }catch(e){
+      lastHtml=''; $('saveBar').style.display='none'; $('mockSeg').hidden=true;
+      out.innerHTML='<p class="err">'+(e.message==='lib'?'تعذّر تحميل أداة التوليد. حدّث الصفحة.'
+        :(st.mode==='bar'?'يحتوي الرابط على رموز لا يدعمها الباركود الخطّي. استخدم رمز QR.':'الرابط أطول من الحد المسموح.'))+'</p>';
+      return;
+    }
+    currentDataUrl=cv.toDataURL('image/png');
+    $('saveBar').style.display='block'; $('mockSeg').hidden=false;
+    const note = st.mode==='bar'&&text.length>40
+      ? '<p class="hint">الروابط الطويلة تُنتج باركودًا عريضًا يصعب قراءته، ورمز QR أنسب لها.</p>':'';
+    const html=
+      mockup(currentDataUrl,cv,text)+
+      '<dl class="facts">'+
+        '<div><dt>المحتوى</dt><dd class="ltr">'+esc(text)+'</dd></div>'+
+        '<div><dt>الأبعاد</dt><dd class="ltr">'+cv.width+' × '+cv.height+' px</dd></div>'+
+        (st.mode==='qr'?'<div><dt>الشبكة</dt><dd class="ltr">'+lastInfo+'</dd></div>':'')+
+      '</dl>'+
+      (st.mode==='qr'&&lastBump?'<p class="note">'+ICON.info+'رُفعت قوة تصحيح الأخطاء درجة لاستيعاب الشعار.</p>':'')+
+      cleanNote + note +
+      '<div class="btns">'+(dl?'<button class="btn" id="saveImg">'+ICON.download+'تنزيل الصورة</button>':'')+
+      '<button class="btn'+(dl?' ghost':'')+'" id="copyImg">'+ICON.copy+'نسخ الصورة</button>'+
+      '<button class="btn ghost" id="copyLink">'+ICON.link+'نسخ الرابط</button></div>'+
+      (dl?'':'<p class="hint">لحفظ الصورة: اضغط عليها مطوّلًا في الجوال، أو انقر بالزر الأيمن في الحاسب.</p>')+
+      '<div class="toast" id="toast"></div>';
+    if(html===lastHtml) return;   // نفس الكود: لا تعيد الرسم عشان الأزرار ما تضيع الضغطة
+    markTemplate();
+    const wasEmpty=!out.querySelector('img');
+    lastHtml=html; out.innerHTML=html;
+    out.classList.toggle('fresh',wasEmpty);
+    $('copyImg').onclick=copyImage;
+    if(dl) $('saveImg').onclick=saveImage;
+    $('copyLink').onclick=()=>navigator.clipboard.writeText(text)
+      .then(()=>toast('نُسخ الرابط ✓')).catch(()=>toast('تعذّر النسخ. انسخ الرابط يدويًا.'));
+  }
+  // ---- حفظ الصورة ----
+  let dl=null;
+  // برّا Claude (موقع مستقل): ننزّل الملفات بطريقة المتصفح العادية
+  const STANDALONE=!(window.claude && typeof window.claude.use==='function');
+  if(STANDALONE){
+    dl={ save: async ({filename,data})=>{
+      const blob=data instanceof Blob?data:new Blob([data],{type:/\.json$/i.test(filename)?'application/json':'application/octet-stream'});
+      const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename;
+      document.body.appendChild(a); a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500);
+      return {status:'saved'};
+    }};
+  }
+  try{
+    if(window.claude && typeof claude.use==='function')
+      claude.use('downloads').then(ns=>{ if(ns){ dl=ns; lastHtml=''; render(); renderList(); paintBackup(); } }).catch(()=>{});
+  }catch(e){}
+  async function saveImage(){
+    try{
+      const blob=await (await fetch(currentDataUrl)).blob();
+      const r=await dl.save({filename:fileName($('codeName').value), data:blob});
+      if(r && r.status==='saved') toast('نُزّلت الصورة ✓');
+    }catch(e){
+      const c=e&&e.code;
+      if(c==='declined') return;
+      if(c==='rate_limited') toast('توجد نافذة حفظ مفتوحة. أكملها أولًا.');
+      else { toast('تعذّر الحفظ هنا. اضغط مطوّلًا على الصورة لحفظها.'); }
+    }
+  }
+
+  // ================= قائمة الباركودات المحفوظة =================
+  let items=[], store=null, currentId=null, query='';
+  const thumbCache=new Map();
+  function fileName(n){
+    const base=(n||'').replace(/[\\/:*?"<>|#%{}~&]/g,'').replace(/\s+/g,' ').trim().slice(0,60);
+    return (base||(st.mode==='qr'?'qr-code':'barcode'))+'.png';
+  }
+  function toast2(m){ const t=$('toast2'); t.textContent=m; clearTimeout(toast2.t); toast2.t=setTimeout(()=>{ t.textContent=''; },2800); }
+  function toast3(m){ const t=$('toast3'); t.textContent=m; clearTimeout(toast3.t); toast3.t=setTimeout(()=>{ t.textContent=''; },3500); }
+  function note(m){ $('storeNote').textContent=m||''; }
+
+  const LKEY='qr-saved-v1', BKEY='qr-last-backup';
+  function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function lsSet(k,v){ try{ localStorage.setItem(k,v); return true; }catch(e){ return false; } }
+  function localStore(){
+    let cb=()=>{};
+    const read=()=>{ try{ return JSON.parse(localStorage.getItem(LKEY)||'[]'); }catch(e){ return null; } };
+    const write=a=>{ localStorage.setItem(LKEY,JSON.stringify(a)); };
+    const sorted=a=>a.slice().sort((x,y)=>(y.updatedAt||0)-(x.updatedAt||0));
+    const ok = read()!==null && lsSet('qr-probe','1');
+    return {
+      kind:'local', ok,
+      subscribe(f){ cb=f; f(sorted(read()||[])); },
+      unsubscribe(){ cb=()=>{}; },
+      async save(id,body){ const a=read()||[]; const nid=id||('c'+Date.now().toString(36)+Math.random().toString(36).slice(2,6));
+        const i=a.findIndex(x=>x.id===nid); const rec=Object.assign({id:nid},body);
+        if(i>=0) a[i]=rec; else a.push(rec); write(a); cb(sorted(a)); return nid; },
+      async remove(id){ const a=(read()||[]).filter(x=>x.id!==id); write(a); cb(sorted(a)); }
+    };
+  }
+  function dbStore(db,uid){
+    const col=db.collection('data/users/'+uid);
+    let unsub=null, timer=null;
+    return {
+      kind:'db', ok:true,
+      subscribe(f){
+        timer=setTimeout(()=>note('تعذّر الوصول إلى القائمة حاليًا…'),10000);
+        unsub=col.orderBy('updatedAt','desc').onSnapshot(snap=>{
+          if(!snap.metadata.fromCache){ clearTimeout(timer); note(''); }
+          f(snap.docs.map(d=>Object.assign({id:d.id},d.data())));
+        }, err=>{ clearTimeout(timer); useLocal(); });
+      },
+      unsubscribe(){ clearTimeout(timer); if(unsub) unsub(); },
+      async save(id,body){ const ref=id?col.doc(id):col.doc(); await ref.set(body); return ref.id; },
+      async remove(id){ await col.doc(id).delete(); }
+    };
+  }
+  function attach(s){
+    if(store && store.unsubscribe) store.unsubscribe();
+    store=s; store.subscribe(list=>{ items=list; renderList(); updateSaveUI(); paintBackup(); });
+    paintBackup();
+  }
+  // للزوار اللي ما يقدرون يحفظون في الحساب: نحفظ في متصفحهم
+  function useLocal(){ if(store && store.kind==='local') return; attach(localStore()); }
+  async function initStore(){
+    let db=null, uid=null, canWrite=null;
+    if(window.claude && typeof claude.use==='function'){
+      try{
+        const [d,u]=await Promise.all([claude.use('db'),claude.use('user')]);
+        if(d && u){
+          uid=await u.id(); db=d;
+          try{ canWrite=await u.can('data.write'); }catch(e){}
+        }
+      }catch(e){}
+    }
+    if(db && uid && canWrite!==false) attach(dbStore(db,uid));
+    else attach(localStore());
+  }
+
+  // ---- النسخة الاحتياطية ----
+  function paintBackup(){
+    if(!store) return;
+    const box=$('backupBox'), msg=$('backupMsg');
+    $('exportBtn').style.display=(dl&&items.length)?'inline-block':'none';
+    if(store.kind==='db'){
+      note('محفوظة في حسابك');
+      msg.className=''; msg.textContent='رموزك محفوظة في حسابك، ومتاحة من أي جهاز تسجّل الدخول منه.';
+      return;
+    }
+    if(!store.ok){
+      note('');
+      msg.className='warn'; msg.textContent='هذا المتصفح لا يسمح بالحفظ، وستُفقد القائمة عند إغلاق الصفحة. نزّل نسخة احتياطية قبل المغادرة.';
+      return;
+    }
+    note('محفوظة في هذا المتصفح');
+    if(!dl){ msg.className=''; msg.textContent='رموزك محفوظة في هذا المتصفح فقط.'; return; }
+    const last=+(lsGet(BKEY)||0);
+    const unsaved=items.filter(x=>(x.updatedAt||0)>last).length;
+    if(items.length && unsaved){
+      msg.className='warn';
+      msg.textContent='رموزك محفوظة في هذا المتصفح فقط. رموز بلا نسخة احتياطية: '+unsaved+'. نزّل نسخة لتجنّب فقدانها عند مسح بيانات المتصفح أو تغيير الجهاز.';
+    } else {
+      msg.className='';
+      msg.textContent=items.length?'النسخة الاحتياطية محدّثة ✓':'تُحفظ رموزك في هذا المتصفح. إن كانت لديك نسخة احتياطية سابقة فيمكنك استعادتها.';
+    }
+  }
+  $('exportBtn').addEventListener('click',async()=>{
+    if(!dl||!items.length) return;
+    const payload={app:'qr-links',version:1,exportedAt:Date.now(),items:items.map(x=>Object.assign({},x))};
+    const d=new Date(), pad=n=>String(n).padStart(2,'0');
+    const fn='رموزي-'+d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'.json';
+    try{
+      const r=await dl.save({filename:fn,data:JSON.stringify(payload)});
+      if(r&&r.status==='saved'){ lsSet(BKEY,String(Date.now())); paintBackup(); toast3('نُزّلت النسخة الاحتياطية ✓'); }
+    }catch(e){ if(!(e&&e.code==='declined')) toast3('تعذّر تنزيل النسخة. حاول مرة أخرى.'); }
+  });
+  $('importFile').addEventListener('change',async e=>{
+    const f=e.target.files[0]; e.target.value=''; if(!f||!store) return;
+    let data; try{ data=JSON.parse(await f.text()); }catch(err){ toast3('هذا الملف ليس نسخة احتياطية صالحة.'); return; }
+    const list=Array.isArray(data)?data:(data&&Array.isArray(data.items)?data.items:null);
+    if(!list){ toast3('هذا الملف ليس نسخة احتياطية صالحة.'); return; }
+    const sig=x=>(x.name||'')+'|'+(x.url||'')+'|'+(x.createdAt||'');
+    const have=new Set(items.map(sig));
+    let added=0, skipped=0;
+    for(const x of list){
+      if(!x||typeof x.url!=='string'||!x.url){ skipped++; continue; }
+      if(have.has(sig(x))){ skipped++; continue; }
+      const body={ name:String(x.name||'بدون اسم').slice(0,80), url:x.url, settings:(x.settings&&typeof x.settings==='object')?x.settings:{},
+        logo:typeof x.logo==='string'&&x.logo.startsWith('data:image/')?x.logo:'', createdAt:+x.createdAt||Date.now(), updatedAt:+x.updatedAt||Date.now() };
+      try{ await store.save(null,body); added++; have.add(sig(body)); }catch(err){ skipped++; }
+    }
+    if(store.kind==='local' && added) lsSet(BKEY,String(Date.now()));
+    paintBackup();
+    toast3(added?('تمت استعادة '+added+' من الرموز ✓'+(skipped?' (تُجوهل '+skipped+' مكرر)':'')):'جميع رموز النسخة موجودة مسبقًا.');
+    togglePanel(true);
+  });
+
+  function updateSaveUI(){
+    const editing=!!currentId;
+    $('saveList').textContent=editing?'حفظ التعديلات':'حفظ في رموزي';
+    $('saveNew').style.display=editing?'inline-block':'none';
+    $('newCode').style.display=editing?'inline-block':'none';
+    $('editing').style.display=editing?'block':'none';
+    if(editing){ const it=items.find(x=>x.id===currentId);
+      $('editing').textContent='تعديل رمز محفوظ'+(it&&it.createdAt?'، حُفظ في '+fmtStamp(it.createdAt):''); }
+  }
+  async function saveToList(asNew){
+    if(!store){ toast2('جارٍ تحميل القائمة، حاول بعد لحظات.'); return; }
+    const raw=input.value.trim(); if(!raw) return;
+    const name=$('codeName').value.trim();
+    if(!name){ toast2('أدخل اسمًا للرمز أولًا.'); $('codeName').focus(); return; }
+    const id=asNew?null:currentId;
+    const old=id?items.find(x=>x.id===id):null;
+    const now=Date.now();
+    const body={ name, url:cleanUrl(raw), settings:getSettings(), logo:st.logoData||'',
+      createdAt:(old&&old.createdAt)||now, updatedAt:now };
+    const btns=[$('saveList'),$('saveNew')]; btns.forEach(b=>b.disabled=true);
+    try{
+      try{ currentId=await store.save(id,body); }
+      catch(e){
+        // ما عنده صلاحية يحفظ في الحساب: نحفظ في متصفحه بدال ما يضيع
+        if(store.kind==='db' && e && ['invalid_argument','revoked','not_granted','capability_disabled','capability_removed'].includes(e.code)){
+          useLocal(); currentId=await store.save(null,body);
+        } else throw e;
+      }
+      toast2(id?'حُفظت التعديلات ✓':'حُفظ في رموزي ✓');
+      if(store.kind==='local' && !store.ok) togglePanel(true);
+    }catch(e){
+      const c=e&&e.code;
+      toast2(c==='quota_exceeded'?'امتلأت القائمة. احذف بعض الرموز ثم حاول مجددًا.':
+             'تعذّر الحفظ. حاول مرة أخرى.');
+    }finally{ btns.forEach(b=>b.disabled=false); updateSaveUI(); renderList(); }
+  }
+  $('saveList').addEventListener('click',()=>saveToList(false));
+  $('saveNew').addEventListener('click',()=>saveToList(true));
+  $('newCode').addEventListener('click',()=>{ currentId=null; $('codeName').value=''; input.value=''; updateSaveUI(); renderList(); render(); input.focus(); });
+  $('codeName').addEventListener('keydown',e=>{ if(e.key==='Enter') saveToList(false); });
+  $('search').addEventListener('input',()=>{ query=$('search').value.trim().toLowerCase(); renderList(); });
+
+  async function openItem(it){
+    input.value=it.url||'';
+    applySettings(it.settings);
+    $('codeName').value=it.name||'';
+    currentId=it.id; lastHtml='';
+    try{ if(it.logo) await setLogo(it.logo); else clearLogo(); }catch(e){ clearLogo(); }
+    render(); updateSaveUI(); renderList();
+    togglePanel(false);
+  }
+  async function itemCanvas(it,size){
+    const S=Object.assign(getSettings(),it.settings||{}); if(size) S.size=size;
+    const logo=it.logo? await loadImg(it.logo).catch(()=>null) : null;
+    return S.mode==='bar'?drawBar(it.url,S):drawQR(it.url,S,logo);
+  }
+  async function thumbFor(it,img){
+    const key=it.id+':'+it.updatedAt;
+    if(thumbCache.has(key)){ img.src=thumbCache.get(key); return; }
+    try{ const cv=await itemCanvas(it,120); const u=cv.toDataURL('image/png'); thumbCache.set(key,u); img.src=u; }catch(e){}
+  }
+  async function saveItemImage(it){
+    try{
+      const cv=await itemCanvas(it);
+      const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+      await dl.save({filename:fileName(it.name), data:blob});
+    }catch(e){ if(!(e&&e.code==='declined')) toast2('تعذّر التنزيل. افتح الرمز ونزّله من المعاينة.'); }
+  }
+
+  function renderList(){
+    const box=$('list');
+    $('count').textContent=items.length; $('count2').textContent=items.length;
+    $('search').style.display=items.length>5?'block':'none';
+    if(!store){ return; }
+    const shown=items.filter(it=>!query||(it.name||'').toLowerCase().includes(query)||(it.url||'').toLowerCase().includes(query));
+    box.innerHTML='';
+    if(!items.length){ box.innerHTML='<p class="empty">لا توجد رموز محفوظة بعد. أنشئ رمزًا وأدخل اسمه، ثم اضغط «حفظ في رموزي».</p>'; return; }
+    if(!shown.length){ box.innerHTML='<p class="empty">لا توجد نتائج</p>'; return; }
+    shown.forEach(it=>{
+      const row=document.createElement('div'); row.className='item'+(it.id===currentId?' cur':'');
+      const img=document.createElement('img'); img.className='th'; img.alt='';
+      const meta=document.createElement('div'); meta.className='meta';
+      const nm=document.createElement('div'); nm.className='nm'; nm.textContent=it.name||'بدون اسم';
+      const ul=document.createElement('div'); ul.className='ul'; ul.textContent=it.url||'';
+      const wh=document.createElement('div'); wh.className='when';
+      wh.textContent='حُفظ في '+fmtStamp(it.createdAt)+((it.updatedAt&&it.createdAt&&it.updatedAt-it.createdAt>1000)?'، وعُدّل في '+fmtStamp(it.updatedAt):'');
+      meta.append(nm,ul,wh);
+      const acts=document.createElement('div'); acts.className='acts';
+      const bOpen=document.createElement('button'); bOpen.className='mini'; bOpen.textContent='فتح';
+      bOpen.onclick=()=>openItem(it);
+      acts.append(bOpen);
+      if(dl){ const bSave=document.createElement('button'); bSave.className='mini'; bSave.textContent='تنزيل';
+        bSave.onclick=()=>saveItemImage(it); acts.append(bSave); }
+      const bDel=document.createElement('button'); bDel.className='mini danger'; bDel.textContent='حذف';
+      bDel.onclick=async()=>{
+        if(!bDel.classList.contains('confirm')){
+          bDel.classList.add('confirm'); bDel.textContent='تأكيد الحذف';
+          setTimeout(()=>{ bDel.classList.remove('confirm'); bDel.textContent='حذف'; },3000); return;
+        }
+        bDel.disabled=true;
+        try{ await store.remove(it.id); if(currentId===it.id){ currentId=null; updateSaveUI(); } }
+        catch(e){ bDel.disabled=false; toast2('تعذّر الحذف. حاول مرة أخرى.'); }
+      };
+      acts.append(bDel);
+      img.onclick=meta.onclick=()=>openItem(it);
+      row.append(img,meta,acts); box.append(row);
+      thumbFor(it,img);
+    });
+  }
+
+  // ================= الساعة والتاريخ =================
+  const fTime=new Intl.DateTimeFormat('ar-SA-u-nu-latn',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});
+  const fGreg=new Intl.DateTimeFormat('ar-SA-u-ca-gregory-nu-latn',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const fHijri=new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura-nu-latn',{day:'numeric',month:'long',year:'numeric'});
+  const fStamp=new Intl.DateTimeFormat('ar-SA-u-ca-gregory-nu-latn',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});
+  function fmtStamp(ms){ if(!ms) return '—'; try{ return fStamp.format(new Date(ms)); }catch(e){ return new Date(ms).toLocaleString(); } }
+  function tick(){
+    const d=new Date();
+    $('clkTime').textContent=fTime.format(d);
+    $('clkDate').textContent=fGreg.format(d);
+    try{ $('clkHijri').textContent=fHijri.format(d); }catch(e){}
+    setTimeout(tick,1000-(Date.now()%1000)+5);
+  }
+  tick();
+
+  // ================= النمط الداكن والفاتح =================
+  const ICON_MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>';
+  const ICON_SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>';
+  function paintThemeBtn(){
+    const dark=document.documentElement.getAttribute('data-theme')==='dark';
+    $('themeBtn').innerHTML=dark?ICON_SUN:ICON_MOON;
+    $('themeBtn').setAttribute('aria-label',dark?'النمط الفاتح':'النمط الداكن');
+    $('themeBtn').title=dark?'النمط الفاتح':'النمط الداكن';
+  }
+  $('themeBtn').addEventListener('click',()=>{
+    const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{ localStorage.setItem('qr-theme',next); }catch(e){}
+    paintThemeBtn();
+  });
+  paintThemeBtn();
+
+  // ================= قائمة الهيدر =================
+  // ---- التبويبات: إنشاء رمز / رموزي ----
+  let view='create';
+  function showView(v,fromHash){
+    view=v==='list'?'list':'create';
+    const list=view==='list';
+    $('createView').hidden=list; $('listView').hidden=!list;
+    $('tabCreate').classList.toggle('on',!list); $('tabList').classList.toggle('on',list);
+    $('tabCreate').setAttribute('aria-selected',String(!list)); $('tabList').setAttribute('aria-selected',String(list));
+    $('listBtn').classList.toggle('on',list); $('listBtn').setAttribute('aria-pressed',String(list));
+    if(!fromHash){ try{ location.hash=list?'my-codes':'create'; }catch(e){} }
+    window.scrollTo(0,0);
+  }
+  function togglePanel(open){ showView(open===false?'create':open===true?'list':(view==='list'?'create':'list')); }
+  $('listBtn').addEventListener('click',()=>showView(view==='list'?'create':'list'));
+  $('tabCreate').addEventListener('click',()=>showView('create'));
+  $('tabList').addEventListener('click',()=>showView('list'));
+  const fromHash=()=>{ const h=(location.hash||'').slice(1); if(h==='my-codes'&&view!=='list') showView('list',true); else if(h!=='my-codes'&&view==='list') showView('create',true); };
+  window.addEventListener('hashchange',fromHash);
+  fromHash();
+
+  // ================= المعاينة على الواقع =================
+  st.mock='plain';
+  function hostOf(t){ try{ return new URL(t).hostname.replace(/^www\./,''); }catch(e){ return t; } }
+  function mockup(src,cv,text){
+    const name=esc($('codeName').value.trim());
+    const host=esc(hostOf(text));
+    const img=cls=>'<img alt="معاينة الرمز" class="'+cls+'" src="'+src+'">';
+    switch(st.mock){
+      case 'card': return '<div class="mk mk-card"><div class="mk-card-text"><b>'+(name||'اسمك هنا')+'</b><span class="ltr">'+host+'</span></div>'+img('mk-qr')+'</div>';
+      case 'tent': return '<div class="mk mk-tent"><div class="mk-tent-face"><p>امسح الرمز</p>'+img('mk-qr')+'<small class="ltr">'+host+'</small></div><div class="mk-tent-shadow"></div></div>';
+      case 'phone': return '<div class="mk mk-phone"><div class="mk-notch"></div><div class="mk-screen">'+img('mk-qr')+'<p>'+(name||'رمزك')+'</p><small class="ltr">'+host+'</small></div></div>';
+      default: return '<img alt="معاينة الرمز" src="'+src+'" style="width:'+cv.width+'px">';
+    }
+  }
+  $('mockSeg').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    st.mock=b.dataset.m;
+    $('mockSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    lastHtml=''; render();
+  }));
+  $('codeName').addEventListener('input',()=>{ if(st.mock!=='plain'){ lastHtml=''; render(); } });
+
+  // ================= القوالب الجاهزة =================
+  const TEMPLATES=[
+    {k:'classic', n:'كلاسيكي',    s:{dot:'square', frame:'square', eye:'square', fg:'#111827', bg:'#ffffff', eyec:'#111827', eyeSame:true, corner:0}},
+    {k:'riyadh',  n:'ليل الرياض', s:{dot:'smooth', frame:'rounded',eye:'rounded',fg:'#14233b', bg:'#f7f1e1', eyec:'#a8761b', eyeSame:false, corner:6}},
+    {k:'palm',    n:'نخيل',       s:{dot:'rounded',frame:'leaf',   eye:'leaf',   fg:'#1f5e3b', bg:'#f2f7ee', eyec:'#1f5e3b', eyeSame:true, corner:8}},
+    {k:'sand',    n:'رمل',        s:{dot:'circle', frame:'rounded',eye:'circle', fg:'#7a4a1e', bg:'#fbf3e4', eyec:'#7a4a1e', eyeSame:true, corner:10}},
+    {k:'jeddah',  n:'بحر جدة',    s:{dot:'smooth', frame:'circle', eye:'circle', fg:'#0b5c8a', bg:'#eef7fb', eyec:'#0b5c8a', eyeSame:true, corner:12}},
+    {k:'taif',    n:'ورد الطائف', s:{dot:'circle', frame:'rounded',eye:'rounded',fg:'#a3264f', bg:'#fff3f7', eyec:'#a3264f', eyeSame:true, corner:10}},
+    {k:'ink',     n:'حبر',        s:{dot:'diamond',frame:'square', eye:'square', fg:'#1b1b3a', bg:'#ffffff', eyec:'#c2410c', eyeSame:false, corner:0}},
+    {k:'night',   n:'بنفسجي',     s:{dot:'rounded',frame:'leaf',   eye:'circle', fg:'#4c1d95', bg:'#f7f3ff', eyec:'#b07d22', eyeSame:false, corner:8}},
+  ];
+  const TPL_KEYS=['dot','frame','eye','fg','bg','eyec','eyeSame'];
+  const SAMPLE='https://ramzak.sa';
+  function buildTemplates(){
+    const row=$('tplRow');
+    TEMPLATES.forEach(t=>{
+      const b=document.createElement('button'); b.className='tpl'; b.dataset.k=t.k; b.type='button';
+      const im=document.createElement('img'); im.alt='';
+      const sp=document.createElement('span'); sp.textContent=t.n;
+      b.append(im,sp); row.append(b);
+      b.addEventListener('click',()=>{ applySettings(Object.assign(getSettings(),t.s)); lastHtml=''; render(); });
+    });
+  }
+  let tplTimer=null, tplText=null;
+  function paintTemplates(){
+    if(typeof qrcode==='undefined') return;
+    const text=cleanUrl(input.value.trim())||SAMPLE;
+    if(text===tplText) return; tplText=text;
+    const base=getSettings();
+    TEMPLATES.forEach(t=>{
+      const S=Object.assign({},base,t.s,{size:150,margin:2});
+      try{ const cv=drawQR(text,S,null); $('tplRow').querySelector('[data-k="'+t.k+'"] img').src=cv.toDataURL('image/png'); }catch(e){}
+    });
+  }
+  function markTemplate(){
+    const cur=getSettings();
+    document.querySelectorAll('.tpl').forEach(b=>{
+      const t=TEMPLATES.find(x=>x.k===b.dataset.k);
+      const on=TPL_KEYS.every(k=>String(cur[k]).toLowerCase()===String(t.s[k]).toLowerCase());
+      b.classList.toggle('on',on); b.setAttribute('aria-pressed',String(on));
+    });
+  }
+  buildTemplates();
+  input.addEventListener('input',()=>{ clearTimeout(tplTimer); tplTimer=setTimeout(paintTemplates,180); });
+
+  // ================= الحركة الافتتاحية =================
+  function heroAnim(){
+    const svg=$('heroQR'); if(!svg||typeof qrcode==='undefined') return;
+    const q=qrcode(0,'L'); q.addData(utf8('رمزك')); q.make();
+    const n=q.getModuleCount();
+    svg.setAttribute('viewBox','-1 -1 '+(n+2)+' '+(n+2));
+    const finder=(r,c)=>(r<7&&c<7)||(r<7&&c>=n-7)||(r>=n-7&&c<7);
+    let html='';
+    for(let r=0;r<n;r++) for(let c=0;c<n;c++){
+      if(!q.isDark(r,c)) continue;
+      const f=finder(r,c);
+      const d=f?(900+((r<7&&c<7)?0:(r<7)?120:240)+Math.random()*80):Math.random()*800;
+      html+='<rect class="'+(f?'f':'')+'" x="'+c+'" y="'+r+'" width="1.02" height="1.02" style="animation-delay:'+Math.round(d)+'ms"/>';
+    }
+    svg.innerHTML=html;
+  }
+
+  // ================= الدعم الفني =================
+  let lastFocus=null;
+  function openSupport(){ lastFocus=document.activeElement; $('supportSheet').hidden=false; $('waLink').focus(); }
+  function closeSupport(){ $('supportSheet').hidden=true; if(lastFocus) lastFocus.focus(); }
+  $('supportBtn').addEventListener('click',openSupport);
+  $('supportFab').addEventListener('click',openSupport);
+  $('supportSheet').querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeSupport));
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!$('supportSheet').hidden) closeSupport(); });
+  $('copyNum').addEventListener('click',()=>{
+    const t=$('toastSup');
+    navigator.clipboard.writeText('+966533957948').then(()=>{ t.textContent='نُسخ الرقم ✓'; })
+      .catch(()=>{ t.textContent='تعذّر النسخ. انسخ الرقم يدويًا.'; });
+    setTimeout(()=>{ t.textContent=''; },2500);
+  });
+  heroAnim();
+  paintTemplates();
+  initStore();
+
+  async function copyImage(){
+    try{
+      const blob=await (await fetch(currentDataUrl)).blob();
+      await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+      toast('نُسخت الصورة ✓');
+    }catch(e){ toast('النسخ غير مدعوم هنا. احفظ الصورة بالضغط المطوّل عليها.'); }
+  }
+  function toast(m){ const t=$('toast'); if(t){ t.textContent=m; setTimeout(()=>{ if(t) t.textContent=''; },2500);} }
+})();
+</script>
+</body>
+</html>
